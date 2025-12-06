@@ -1,0 +1,50 @@
+# macOS 系统文件和文件夹
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+.fseventsd
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.DocumentRevisions-V100
+.apdisk
+
+# macOS 缩略图和图标
+Icon
+Icon?
+Thumbs.db 
+
+# macOS 文件属性和临时文件夹
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+
+# IDE 和编辑器配置
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 语言特定的临时文件
+*.pyc
+node_modules/
+__pycache__/
+
+# 虚拟环境目录
+venv/
+.vscode/
+
+data/
+datasets/
+
+# 常见大型二进制文件
+*.npy
+*.npz
+*.h5
+*.hdf5
