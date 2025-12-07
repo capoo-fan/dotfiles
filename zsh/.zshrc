@@ -98,6 +98,7 @@ export BAT_THEME="tokyonight_night" # 设置主题
 alias ls="eza -a --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --git-ignore --git-repos-no-status"
 
 # 快捷命令的定义
+alias ncdu='ncdu -x' # 只扫描当前文件系统
 alias c='clear' # 清屏
 alias q='exit'  #退出终端
 alias lg='lazygit' 
