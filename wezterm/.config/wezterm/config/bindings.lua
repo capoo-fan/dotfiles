@@ -53,9 +53,7 @@ local keys = {
    { key = 'RightArrow', mods = mod.SUPER,     action = act.SendString '\u{1b}OF' },
    { key = 'Backspace',  mods = mod.SUPER,     action = act.SendString '\u{15}' },
 
-   -- copy/paste --
-   { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo('Clipboard') },
-   { key = 'v', mods = 'CTRL|SHIFT', action = act.PasteFrom('Clipboard') },
+
 
    -- tabs --
    -- tabs: spawn+close
@@ -218,6 +216,15 @@ local keys = {
       }),
    },
 }
+
+-- 按平台追加 copy/paste 绑定
+if platform.is_mac then
+   table.insert(keys, { key = 'c', mods = 'SUPER',      action = act.CopyTo('Clipboard') })
+   table.insert(keys, { key = 'v', mods = 'SUPER',      action = act.PasteFrom('Clipboard') })
+elseif platform.is_linux then
+   table.insert(keys, { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo('Clipboard') })
+   table.insert(keys, { key = 'v', mods = 'CTRL|SHIFT', action = act.PasteFrom('Clipboard') })
+end
 
 -- stylua: ignore
 local key_tables = {
