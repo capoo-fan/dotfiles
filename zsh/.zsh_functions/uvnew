@@ -1,5 +1,5 @@
 local default_py="3.12"
-local base_packages=(ipykernel nbconvert numpy matplotlib)
+local base_packages=(ipykernel nbconvert numpy matplotlib notebook pip)
 local py_ver="${1:-$default_py}"
     
 
