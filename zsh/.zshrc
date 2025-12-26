@@ -105,7 +105,6 @@ alias lg='lazygit'
 alias Shizuku="adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh"
 alias Scene="adb shell sh /storage/emulated/0/Android/data/com.omarea.vtools/up.sh"
 alias tailwind="npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
-
 os_name=$(uname -s | tr '[:upper:]' '[:lower:]')
 
 

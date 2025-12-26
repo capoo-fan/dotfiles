@@ -1,0 +1,54 @@
+clicker() {
+    # === 配置区域 ===
+    local script_dir="$HOME/.dotfiles/scripts"
+    local script_name="autoclicker.py"
+    local venv_dir="$script_dir/.venv"
+    
+    # 依赖列表 (用空格分隔)
+    local packages=("pyautogui" "pynput")
+    # =================
+
+    # 0. 预检: 检查脚本文件是否存在
+    if [[ ! -f "$script_dir/$script_name" ]]; then
+        echo "❌ 错误: 找不到脚本文件: $script_dir/$script_name"
+        return 1
+    fi
+
+    # 1. 预检: 检查是否安装了 uv
+    if ! command -v uv &> /dev/null; then
+        echo "❌ 未检测到 uv。请先安装: curl -LsSf https://astral.sh/uv/install.sh | sh"
+        return 1
+    fi
+
+    # 2. 检查虚拟环境是否存在
+    if [[ ! -d "$venv_dir" ]]; then
+        echo "⚡️ (uv) 检测到初次运行，正在极速初始化..."
+        
+        # A. 创建虚拟环境
+        # --python python3: 强制使用系统当前的 python3 (通常包含 tkinter)
+        # 避免 uv 自动下载一个不带 GUI 支持的精简版 Python
+        uv venv "$venv_dir" --python python3
+        
+        echo "📦 (uv) 正在安装依赖: ${packages[*]} ..."
+        
+        # B. 安装依赖
+        # -p: 指定要把包安装到哪个环境里
+        uv pip install -p "$venv_dir" "${packages[@]}"
+        
+        if [[ $? -eq 0 ]]; then
+            echo "✅ 环境构建完成！"
+        else
+            echo "❌ 依赖安装失败，正在清理..."
+            rm -rf "$venv_dir"
+            return 1
+        fi
+    fi
+
+    # 3. 启动连点器
+    echo "🚀 启动连点器..."
+    
+    # 使用虚拟环境中的解释器启动，并在后台运行
+    # nohup: 确保关闭终端后不退出
+    # >/dev/null 2>&1: 静默运行
+    nohup "$venv_dir/bin/python" "$script_dir/$script_name" >/dev/null 2>&1 &
+}
