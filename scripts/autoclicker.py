@@ -1,11 +1,3 @@
-# /// script
-# requires-python = ">=3.10"
-# dependencies = [
-#     "pyautogui",
-#     "pynput",
-# ]
-# ///
-
 import tkinter as tk
 from tkinter import messagebox
 import pyautogui
