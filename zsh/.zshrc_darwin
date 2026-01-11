@@ -7,4 +7,5 @@ export HOMEBREW_CORE_GIT_REMOTE="git://mirrors.sustech.edu.cn/git/homebrew/homeb
 export HOMEBREW_PIP_INDEX_URL="https://mirrors.sustech.edu.cn/pypi/simple"
 
 alias python="python3"
+export CHIPLAB_HOME="$HOME/chipLab"
 alias sshconnect="ssh 'qianfu@10.250.209.225'"

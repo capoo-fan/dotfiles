@@ -3,5 +3,6 @@ alias proxy='export http_proxy=http://127.0.0.1:7897; export https_proxy=http://
 
 alias mount='rclone mount gdrive: ~/gdrive --vfs-cache-mode writes --daemon && echo "Google Drive 已挂载 📂"'
 alias cleancache='sudo paccache -r && sudo paccache -ruk0 && rm -rf 
-alias vivado='/opt/Xilinx/Vivado/2024.1/settings64.sh && vivado'
+alias vivado='source /opt/Xilinx/Vivado/2024.1/settings64.sh && vivado'
+export CHIPLAB_HOME="$HOME/chipLab"
 ~/.cache/paru/clone/* ~/.cache/paru/diff/*'
