@@ -115,4 +115,6 @@ if [[ -f "$os_config_file" ]]; then
     source "$os_config_file"
 fi
 
+source /opt/Xilinx/Vivado/2024.1/settings64.sh
+
 eval "$(starship init zsh)"
