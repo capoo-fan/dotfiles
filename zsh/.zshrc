@@ -95,7 +95,8 @@ eval $(thefuck --alias fk)
 alias cat="bat"
 export BAT_THEME="tokyonight_night" # 设置主题
 # eza 
-alias ls="eza -a --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --git-ignore --git-repos-no-status"
+alias ls='eza --group-directories-first --icons=always --color=always'
+alias la='eza -a --group-directories-first --icons=always --color=always'
 
 # 快捷命令的定义
 alias ncdu='ncdu -x /' # 只扫描当前文件系统
