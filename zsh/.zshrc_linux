@@ -7,3 +7,4 @@ alias cleancache='sudo paccache -r && sudo paccache -ruk0 && rm -rf ~/.cache/par
 alias vivado='source /tools/Xilinx/Vivado/2023.2/settings64.sh && vivado'
 
 export CHIPLAB_HOME="$HOME/chipLab"
+export PATH=$PATH:/opt/loongarch32r-toolchain/bin
