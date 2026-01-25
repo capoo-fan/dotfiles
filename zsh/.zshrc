@@ -116,5 +116,9 @@ if [[ -f "$os_config_file" ]]; then
     source "$os_config_file"
 fi
 
+# Load secrets
+if [[ -f "$HOME/.dotfiles/zsh/.zsh_secret" ]]; then
+    source "$HOME/.dotfiles/zsh/.zsh_secret"
+fi
 
 eval "$(starship init zsh)"

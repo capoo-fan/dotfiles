@@ -29,3 +29,5 @@ wheels/
 
 # Virtual environments
 .venv
+
+zsh/.zsh_secret
