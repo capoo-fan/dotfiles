@@ -1,3 +1,5 @@
+scan_timeout = 100
+command_timeout = 1000
 format = """
 [░▒▓](#a3aed2)\
 $os\
