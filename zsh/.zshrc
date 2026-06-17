@@ -121,4 +121,4 @@ if [[ -f "$HOME/.dotfiles/zsh/.zsh_secret" ]]; then
     source "$HOME/.dotfiles/zsh/.zsh_secret"
 fi
 
-eval "$(starship init zsh)"
+eval "$(starship init zsh)"export PATH="/opt/homebrew/sbin:$PATH"
