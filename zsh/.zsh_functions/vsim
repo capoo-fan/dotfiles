@@ -1,3 +1,0 @@
-vsim() {
-    iverilog -o sim.out "$@" && vvp -n sim.out
-}

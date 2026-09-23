@@ -88,8 +88,8 @@ _fzf_comprun(){
 }
 
 # the fuck
-eval $(thefuck --alias)
-eval $(thefuck --alias fk)
+eval "$(thefuck --alias)"
+eval "$(thefuck --alias fk)"
 
 # bat 
 alias cat="bat"
@@ -108,7 +108,6 @@ alias Scene="adb shell sh /storage/emulated/0/Android/data/com.omarea.vtools/up.
 alias tailwind="npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
 os_name=$(uname -s | tr '[:upper:]' '[:lower:]')
 
-
 # 根据操作系统加载对应的配置文件
 os_config_file="$HOME/.zshrc_${os_name}"
 
@@ -121,4 +120,13 @@ if [[ -f "$HOME/.dotfiles/zsh/.zsh_secret" ]]; then
     source "$HOME/.dotfiles/zsh/.zsh_secret"
 fi
 
-eval "$(starship init zsh)"export PATH="/opt/homebrew/sbin:$PATH"
+#alias riscv64-unknown-elf-gdb='riscv64-elf-gdb'
+
+export PATH="$HOME/opt/riscv-2021/bin:$PATH"
+export HOMEBREW_CACHE="/Volumes/256G/Homebrew/Cache"
+
+export PATH="/opt/homebrew/sbin:$PATH"
+#eval "$(direnv hook zsh)"
+
+eval "$(starship init zsh)"
+

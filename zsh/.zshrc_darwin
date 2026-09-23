@@ -6,5 +6,4 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.sustech.edu.cn/homebrew-bottles/bo
 export HOMEBREW_PIP_INDEX_URL="https://mirrors.sustech.edu.cn/pypi/simple"
 
 alias python="python3"
-export CHIPLAB_HOME="$HOME/chipLab"
-alias sshconnect="ssh 'qianfu@10.250.209.225'"
+
