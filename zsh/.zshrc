@@ -55,7 +55,6 @@ setopt sharehistory  #共享历史记录
 setopt hist_ignore_space
 setopt hist_ignore_all_dups #忽略重复的记录
 setopt hist_save_no_dups    #不存储重复的记录
-setopt hist_ignore_dups     #忽略重复的记录
 
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
