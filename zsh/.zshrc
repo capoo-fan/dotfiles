@@ -6,8 +6,6 @@ if [[ -d $my_funcs ]]; then
         autoload -Uz "$func"
     done
 fi
-autoload -Uz compinit && compinit
-
 
 # zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -19,15 +17,20 @@ source "${ZINIT_HOME}/zinit.zsh"
 #zinit ice depth=1
 #zinit light romkatv/powerlevel10k
 
-# 语法高亮
-zinit load zdharma-continuum/history-search-multi-word
+zinit ice wait lucid
+zinit light zdharma-continuum/history-search-multi-word
+
+# 输入建议
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#6c7086'
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#6c7086'
+
 # 自动补全
-zinit ice wait lucid blockf
+zinit ice wait lucid blockf atload'zicompinit; zicdreplay'
 zinit light zsh-users/zsh-completions
+
 # fzf-tab
+zinit ice wait lucid
 zinit light Aloxaf/fzf-tab
 zstyle ':fzf-tab:*' fzf-flags \
     "--color=fg:#c0caf5,bg:-1,hl:#bb9af7" \
@@ -39,6 +42,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat -n --color=always ${(Q)realpath}'
 zstyle ':completion:*:git-checkout:*' sort false
 
+# 语法高亮
 zinit ice wait lucid 
 zinit light zdharma-continuum/fast-syntax-highlighting
 
@@ -46,17 +50,12 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 HISTSIZE=10000 #历史记录的最大值
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE   #最大存储条数
-HISTDUP=erase        #删除重复的记录
 setopt appendhistory #追加历史记录
 setopt sharehistory  #共享历史记录
 setopt hist_ignore_space
 setopt hist_ignore_all_dups #忽略重复的记录
 setopt hist_save_no_dups    #不存储重复的记录
 setopt hist_ignore_dups     #忽略重复的记录
-setopt hist_find_no_dups    #不查找重复的记录
-# 快捷命令的定义
-alias c='clear' # 清屏
-alias q='exit'  #退出终端
 
 # zoxide
 eval "$(zoxide init zsh --cmd cd)"
@@ -88,12 +87,11 @@ _fzf_comprun(){
 }
 
 # the fuck
-eval "$(thefuck --alias)"
 eval "$(thefuck --alias fk)"
 
 # bat 
 alias cat="bat"
-export BAT_THEME="tokyonight_night" # 设置主题
+export BAT_THEME="Catppuccin Frappe" # 设置主题
 # eza 
 alias ls='eza --group-directories-first --icons=always --color=always'
 alias la='eza -a --group-directories-first --icons=always --color=always'
@@ -105,7 +103,6 @@ alias q='exit'  #退出终端
 alias lg='lazygit' 
 alias Shizuku="adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh"
 alias Scene="adb shell sh /storage/emulated/0/Android/data/com.omarea.vtools/up.sh"
-alias tailwind="npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
 os_name=$(uname -s | tr '[:upper:]' '[:lower:]')
 
 # 根据操作系统加载对应的配置文件
@@ -120,13 +117,7 @@ if [[ -f "$HOME/.dotfiles/zsh/.zsh_secret" ]]; then
     source "$HOME/.dotfiles/zsh/.zsh_secret"
 fi
 
-#alias riscv64-unknown-elf-gdb='riscv64-elf-gdb'
-
-export PATH="$HOME/opt/riscv-2021/bin:$PATH"
-export HOMEBREW_CACHE="/Volumes/256G/Homebrew/Cache"
 
 export PATH="/opt/homebrew/sbin:$PATH"
-#eval "$(direnv hook zsh)"
 
 eval "$(starship init zsh)"
-

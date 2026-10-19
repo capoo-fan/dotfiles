@@ -7,3 +7,5 @@ export HOMEBREW_PIP_INDEX_URL="https://mirrors.sustech.edu.cn/pypi/simple"
 
 alias python="python3"
 
+export PATH="$HOME/opt/riscv-2021/bin:$PATH"
+export HOMEBREW_CACHE="/Volumes/256G/Homebrew/Cache"
